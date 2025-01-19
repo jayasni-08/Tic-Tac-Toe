@@ -1,0 +1,156 @@
+
+/* General Styling */
+body {
+  font-family: 'Bebas Neue', cursive;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: all 0.5s ease;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  width: 90%;
+  max-width: 400px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+/* Inputs and Buttons */
+.player-inputs input {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Game Board */
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 300px;
+}
+
+.cell {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cell:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.cell.taken {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.cell.winning {
+  animation: winningGlow 1s infinite alternate;
+}
+
+@keyframes winningGlow {
+  from {
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(255, 255, 0, 1);
+  }
+}
+
+/* Dark Mode */
+body.dark {
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  color: #fff;
+  transition: all 0.5s ease;
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem; /* Adjust heading font size for mobile */
+  }
+
+  .container {
+    width: 80%; /* Slightly smaller width on mobile */
+    max-width: 350px;
+  }
+
+  .cell {
+    width: 25vw;
+    height: 25vw;
+    font-size: 1.8rem; /* Adjust font size for smaller screens */
+  }
+
+  button {
+    padding: 12px 24px;
+    font-size: 1.2rem; /* Adjust button size */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem; /* Further decrease font size for very small screens */
+  }
+
+  .container {
+    width: 90%; /* Ensure the container fits well on very small screens */
+  }
+
+  .cell {
+    width: 30vw;
+    height: 30vw;
+    font-size: 1.5rem; /* Make the text fit better */
+  }
+
+  button {
+    padding: 15px 30px;
+    font-size: 1.3rem; /* Larger buttons for easy touch on mobile */
+  }
+}
